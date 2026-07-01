@@ -1,0 +1,9 @@
+// comando para criar tabela
+create table nome_da_tabela()
+
+// comando para pegar todos os dados da tabela
+select * from nome_da_tabela;
+
+// comando para criar dados na tabela
+insert into nome_da_tabela (atributos_da_tabela) values (valores_da_tabela)
+OBS: os valores só podem ser passado com aspas simples ('Nome')
