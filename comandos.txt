@@ -20,3 +20,12 @@ CREATE TABLE detalhes_usuarios(
 	endereco TEXT,
 	CONSTRAINT fk_usuario FOREIGN KEY (idUsuario) REFERENCES usuario (id) on delete cascade
 );
+
+// comando para atualizar nome na tabela
+UPDATE nome_da_tabela
+set nome = 'nome_teste'
+WHERE id = numero_id
+
+// comando para adicionar coluna na tabela
+ALTER TABLE nome_da_tabela
+ADD column nome_da_coluna VARCHAR (00);
