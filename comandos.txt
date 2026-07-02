@@ -7,3 +7,16 @@ select * from nome_da_tabela;
 // comando para criar dados na tabela
 insert into nome_da_tabela (atributos_da_tabela) values (valores_da_tabela)
 OBS: os valores só podem ser passado com aspas simples ('Nome')
+
+CREATE TABLE usuario(
+	id serial PRIMARY KEY,
+	nome VARCHAR (150) NOT NULL,
+	email VARCHAR (150) NOT NULL UNIQUE
+);
+
+CREATE TABLE detalhes_usuarios(
+	idUsuario int PRIMARY KEY,
+	cpf VARCHAR (11) UNIQUE NOT NULL,
+	endereco TEXT,
+	CONSTRAINT fk_usuario FOREIGN KEY (idUsuario) REFERENCES usuario (id) on delete cascade
+);
