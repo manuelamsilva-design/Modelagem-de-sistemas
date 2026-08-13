@@ -49,3 +49,9 @@ INSERT INTO residuos (tipo, quantidade_kg, destino, status) VALUES
 ('Plástico', 110, 'EcoTech', 'Concluído'),
 ('Metal', 90, 'Recicle Metais', 'Concluído'),
 ('Eletrônicos', 60, 'Green Eletron', 'Concluído');
+
+INSERT INTO alertas (id_maquina, descricao) VALUES
+(3, 'Parada não programada');
+
+INSERT INTO desempenho (co2_economizado, energia_poupada, residuos_reciclados, agua_economizada) VALUES
+(2.45, 860, 1230, 12.5);
