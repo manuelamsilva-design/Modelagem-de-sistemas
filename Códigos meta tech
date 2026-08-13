@@ -1,0 +1,51 @@
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100),
+    usuario VARCHAR(50),
+    senha VARCHAR(100)
+	);
+
+CREATE TABLE maquinas (
+    id SERIAL PRIMARY KEY,
+    codigo VARCHAR(10),
+    nome VARCHAR(100),
+    status VARCHAR(20),
+    consumo_kwh NUMERIC (10, 2)
+);
+
+CREATE TABLE residuos (
+    id SERIAL PRIMARY KEY,
+    tipo VARCHAR(100),
+    quantidade_kg NUMERIC(10, 2),
+    destino VARCHAR(100),
+    status VARCHAR(20)
+);
+
+CREATE TABLE alertas (
+    id SERIAL PRIMARY KEY,
+    id_maquina INT REFERENCES maquinas(id),
+    descricao VARCHAR(200),
+    data_hora TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE desempenho (
+    id SERIAL PRIMARY KEY,
+    co2_economizado NUMERIC(10, 2),
+    energia_poupada NUMERIC(10, 2),
+    residuos_reciclados NUMERIC(10, 2),
+    agua_economizada NUMERIC(10, 2)
+);
+
+INSERT INTO usuarios (nome, usuario, senha) VALUES
+('Manuela', 'manuela_gerente', '111111'),
+('Gabriel', 'gabriel_operador', '222222');
+
+INSERT INTO maquinas (codigo, nome, status, consumo_kwh) VALUES
+('M01', 'Injetora', 'Ativa', 120),
+('M02', 'Solda', 'Ativa', 98),
+('M05', 'Impressora 3D', 'Parada', 0);
+
+INSERT INTO residuos (tipo, quantidade_kg, destino, status) VALUES
+('Plástico', 110, 'EcoTech', 'Concluído'),
+('Metal', 90, 'Recicle Metais', 'Concluído'),
+('Eletrônicos', 60, 'Green Eletron', 'Concluído');
