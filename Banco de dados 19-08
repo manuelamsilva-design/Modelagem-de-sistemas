@@ -1,0 +1,20 @@
+CREATE TABLE produtos(
+id serial PRIMARY KEY,
+item VARCHAR(100) not null,
+qtd_estoque int,
+custo_unitario DECIMAL(10,2)
+)
+
+
+
+insert into produtos (item, qtd_estoque, custo_unitario) VALUES
+('MXRF11', 50, 10.50),
+('CPFF11', 40, 8.90),
+('Tesouro Selic', 3, 1200.00),
+('Tesouro_IPCA', 2, 1500.00),
+('PETR4', 20, 38.50),
+('VALE3', 15, 65.00),
+('ITUB4', 25, 32.00); 
+
+SELECT item, qtd_estoque, custo_unitario,
+    qtd_estoque * custo_unitario AS valor_total FROM produtos;
